@@ -9,7 +9,7 @@ def draw_plot():
 
     # Create scatter plot
     plt.figure(figsize=(12, 6))
-    plt.scatter(df['Year'], df['CSIRO Adjusted Sea Level'], color='purple', alpha=0.5)
+    plt.scatter(df['Year'], df['CSIRO Adjusted Sea Level'], color='purple', alpha=0.7)
     
 
 
@@ -17,7 +17,7 @@ def draw_plot():
     slope, intercept, _, _, _ = linregress(df['Year'], df['CSIRO Adjusted Sea Level'])
     future_years = range(1880, 2051)
     line_fit = [slope * year + intercept for year in future_years]
-    plt.plot(future_years, line_fit, color='red', label='Best fit line (1880-2050)')
+    plt.plot(future_years, line_fit, color='red', label='Best fit (1880-2050)')
 
     # Create second line of best fit (2000 - 2050)
 
@@ -25,7 +25,7 @@ def draw_plot():
     slope_recent, intercept_recent, _, _, _ = linregress(recent_data['Year'], recent_data['CSIRO Adjusted Sea Level'])
     future_years_recent = range(2000, 2051)
     line_fit_recent = [slope_recent * year + intercept_recent for year in future_years_recent]
-    plt.plot(future_years_recent, line_fit_recent, color='green', label='Best fit line (2000-2050)')
+    plt.plot(future_years_recent, line_fit_recent, color='green', label='Best fit (2000-2050)')
 
 
     # Add labels and title
